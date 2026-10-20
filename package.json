@@ -1,0 +1,13 @@
+{
+  "name": "truthhub-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Exportação estática do tema WordPress Truth Hub para publicação na Vercel",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-static.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

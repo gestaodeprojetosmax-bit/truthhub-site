@@ -1,0 +1,44 @@
+/* Progressive enhancement: the original service list remains usable without JS. */
+@media (max-width: 700px) and (prefers-reduced-motion: no-preference) {
+  .solutions-grid.service-stack-active {
+    display: block;
+    isolation: isolate;
+    padding-bottom: 0;
+  }
+
+  .solutions-grid.service-stack-active::after {
+    content: "";
+    display: block;
+    height: var(--service-stack-tail, 120px);
+  }
+
+  .solutions-grid.service-stack-active > .solution-card {
+    position: sticky;
+    top: calc(var(--service-stack-top, 86px) + var(--service-stack-index, 0) * var(--service-stack-step, 12px));
+    z-index: calc(var(--service-stack-index, 0) + 1);
+    margin: 0 0 var(--service-stack-gap, 32px);
+    transform: scale(var(--service-stack-scale, 1));
+    transform-origin: center top;
+    transition: none;
+    scroll-margin-top: calc(var(--service-stack-top, 86px) + var(--service-stack-index, 0) * var(--service-stack-step, 12px) + 12px);
+    box-shadow: 0 12px 34px #35230d16;
+  }
+
+  .solutions-grid.service-stack-active > .solution-card:last-child {
+    margin-bottom: 0;
+  }
+
+  .solutions-grid.service-stack-active.service-stack-in-view > .solution-card {
+    will-change: transform;
+  }
+
+  /* Short viewports, landscape and zoom retain the complete, normal-flow list. */
+  .solutions-grid.service-stack-reveal > .solution-card {
+    transform: translateY(10px);
+    transition: transform 440ms cubic-bezier(.2, .65, .25, 1);
+  }
+
+  .solutions-grid.service-stack-reveal > .solution-card.service-stack-revealed {
+    transform: none;
+  }
+}

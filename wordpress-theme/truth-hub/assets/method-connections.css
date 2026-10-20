@@ -1,0 +1,13 @@
+/* Complete connections remain visible when scripting or motion is unavailable. */
+.method-steps{--method-line-gap:28px}
+.method-steps>li:not(:last-child)::after{left:45px;right:calc(-1 * var(--method-line-gap));top:22px;background:#bea071}
+.method-steps.method-connections-active>li:not(:last-child)::after{left:var(--method-line-x);right:auto;top:var(--method-line-y);width:var(--method-line-length);height:1px;background:#d7c8b3}
+.method-steps.method-connections-active>li:not(:last-child)::before{content:"";position:absolute;left:var(--method-line-x);top:var(--method-line-y);width:var(--method-line-length);height:2px;background:#ab8047;transform:scaleX(var(--method-line-progress,0));transform-origin:left center;z-index:0;pointer-events:none}
+.method-steps.method-connections-active.method-connections-vertical>li:not(:last-child)::after{width:1px;height:var(--method-line-length)}
+.method-steps.method-connections-active.method-connections-vertical>li:not(:last-child)::before{width:2px;height:var(--method-line-length);transform:scaleY(var(--method-line-progress,0));transform-origin:center top}
+.method-steps>li.is-method-connected .step-marker{background:#e6d4b7;border-color:#ad834f;color:#51371f;box-shadow:0 2px 7px #a77f4120}
+.method-steps>li:first-child.is-method-connected .step-marker{background:#b89563;border-color:#b89563;color:#2b2116}
+@media(prefers-reduced-motion:no-preference){.method-steps.method-connections-active .step-marker{transition:background-color 180ms,border-color 180ms,box-shadow 180ms}}
+@media(max-width:1000px){.method-steps{--method-line-gap:20px}}
+@media(max-width:700px){.method-steps>li:not(:last-child)::after{left:22px;right:auto;top:45px;width:1px;height:calc(100% - 45px)}}
+@media(prefers-reduced-motion:reduce){.method-steps.method-connections-active>li:not(:last-child)::before{transform:scaleX(1)}.method-steps.method-connections-active.method-connections-vertical>li:not(:last-child)::before{transform:scaleY(1)}.method-steps .step-marker{transition:none!important}}

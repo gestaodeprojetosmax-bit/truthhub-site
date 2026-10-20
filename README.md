@@ -1,40 +1,34 @@
 # Truth Hub de Negócios
 
-Site institucional estático da Truth Hub de Negócios, em português do Brasil. Não requer Node.js, dependências, framework ou etapa de compilação.
+Versão com animações do site institucional. O repositório mantém o tema WordPress original recebido em `wordpress-theme/truth-hub/` e contém um exportador que converte os templates e o conteúdo legal em HTML estático para a Vercel.
 
-## Estrutura
+## Publicação na Vercel
 
-- `index.html`: página principal.
-- `privacidade.html` e `termos.html`: páginas legais.
-- `assets/`: CSS, JavaScript e imagens locais.
-- `vercel.json`: cabeçalhos HTTP para a publicação na Vercel.
+O projeto está configurado com `vercel.json`: a Vercel executa `npm run build` e publica apenas a pasta `dist/`. Não é necessário configurar PHP, WordPress, base de dados ou variáveis de ambiente para esta exportação estática.
 
-## Executar localmente
+Importe o repositório `gestaodeprojetosmax-bit/truthhub-site` em [vercel.com/new](https://vercel.com/new) e mantenha as definições do projeto detetadas a partir de `vercel.json`. A cada push para `main`, a integração Git da Vercel poderá reconstruir o site.
 
-Abra `index.html` no navegador ou inicie um servidor estático na raiz do repositório, por exemplo:
+## Gerar e testar localmente
+
+Requer Node.js 20 ou superior. Não há dependências npm externas.
 
 ```bash
+npm run build
+cd dist
 python3 -m http.server 8000
 ```
 
-Depois aceda a `http://localhost:8000`.
+Abra `http://localhost:8000`. As páginas legais ficam em `/politica-de-privacidade/` e `/termos-de-uso/`.
 
-## Publicar na Vercel
+## Tema WordPress original
 
-1. Importe este repositório em [vercel.com/new](https://vercel.com/new).
-2. Selecione **Other** como framework, sem Build Command; mantenha a raiz do projeto como diretório de publicação (`.`).
-3. Publique. A Vercel serve diretamente os ficheiros HTML e a pasta `assets/`.
+O diretório `wordpress-theme/truth-hub/` contém o tema PHP entregue no ZIP, preservado para instalação num WordPress compatível. Para o instalar, compacte a pasta `truth-hub` como ZIP e carregue-a em **Aparência → Temas → Adicionar tema → Carregar tema**, ou copie-a para `wp-content/themes/` e ative-a. O tema indica WordPress 6.0+ e PHP 7.4+.
 
-Também é possível usar a CLI da Vercel na raiz do projeto: `vercel` para uma publicação de pré-visualização e `vercel --prod` para produção, depois de associar o projeto à conta pretendida.
+A exportação estática usa os templates e as páginas legais do tema, mas não executa WordPress na Vercel. Assim, não há painel CMS nem atualização de conteúdo em tempo real; para editar conteúdo no futuro, altere os ficheiros fonte e volte a gerar ou publicar o site. Para usar o tema com WordPress dinâmico, o WordPress e a base de dados precisam de alojamento compatível; a Vercel serve a exportação estática deste repositório.
 
-## Domínio e SEO
+## Estrutura
 
-O pacote original continha um URL canónico e um URL de organização estruturado que apontavam para um endereço de pré-visualização antigo. Foram retirados para evitar sinalizar esse endereço como URL oficial. Depois de escolher o domínio final, adicione um `<link rel="canonical">` ao `<head>` de cada página pública apropriada e atualize `url` no JSON-LD de `index.html` para o domínio publicado. Reveja também os metadados Open Graph se definir uma imagem social.
-
-A Vercel pode criar um domínio `*.vercel.app` para o projeto; confirme o URL atribuído no painel antes de o usar como domínio canónico. Configure o domínio próprio no painel da Vercel, se aplicável.
-
-## Notas
-
-- Os contactos, textos, dados institucionais e imagens foram mantidos conforme recebidos no pacote.
-- O ficheiro `LEIA-ME.txt` contém as notas editoriais originais da versão entregue.
-- Não há variáveis de ambiente nem serviços de backend configurados neste site.
+- `scripts/build-static.mjs`: gera o HTML estático e copia assets.
+- `wordpress-theme/truth-hub/`: tema WordPress e conteúdo fonte recebidos.
+- `dist/`: resultado de produção gerado pelo build; não é versionado.
+- `vercel.json`: build, diretório de publicação e cabeçalhos HTTP.
