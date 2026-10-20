@@ -1,0 +1,29 @@
+TRUTH HUB - VERSÃO REVISADA PARA AVALIAÇÃO
+
+Abra index.html no navegador mantendo a pasta assets ao lado.
+
+CONTEÚDO INCORPORADO
+- Título e botões com foco em entender a operação comercial.
+- Escopo e formato das três soluções.
+- Diagnóstico de Maturidade Comercial como serviço contratado à parte.
+- Três casos descritos e atribuídos aos materiais do Instituto Social Fly.
+- Conteúdo do Cresça & Apareça sobre posicionamento, networking e plano de 90 dias.
+- Perguntas frequentes sobre escopo, formato e implantação.
+- Imagens, CSS e JavaScript separados para facilitar manutenção e cache.
+
+CONTATO OFICIAL CONFIRMADO PELO USUÁRIO
++55 (12) 99105-7907 / https://wa.me/5512991057907
+Todos os links usam esse número. O telefone diferente da proposta não foi utilizado.
+
+FONTES EDITORIAIS
+Proposta_Solucoes_Comerciais_Social_Fly(1).pdf: páginas 5-8 (soluções),
+11 (casos), 12 (diagnóstico), 10 (turmas adicionais).
+cresca-e-apareca-12a-edicao(1).pdf: páginas 3-5 (trajetória, números e jornada).
+As alegações dos casos são relatos da proposta fornecida; não houve auditoria independente.
+Os preços e as condições financeiras da proposta não foram publicados nesta cópia.
+
+ESTADO
+Cópia revisada local. O endereço original da Vercel não foi atualizado.
+HTML, referências locais, contatos, JSON estruturado, CSS e sintaxe de JavaScript
+foram verificados automaticamente. A versão revisada ainda requer inspeção visual
+em navegador antes de substituir a publicação existente.
